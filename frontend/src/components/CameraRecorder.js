@@ -1,5 +1,6 @@
 import React from 'react';
 import RecordRTC from 'recordrtc';
+import { Col, Row } from 'react-bootstrap';
 
 class CameraRecorder extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class CameraRecorder extends React.Component {
 
   startRecord() {
     this.getUserMedia(stream => {
+      // eslint-disable-next-line
       this.state.recordVideo = RecordRTC(stream, { type: 'video' });
       this.state.recordVideo.startRecording();
     });
@@ -49,10 +51,14 @@ class CameraRecorder extends React.Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.startRecord}>Start Record</button>
-        <button onClick={this.stopRecord}>Stop Record</button>
-      </div>
+      <Row>
+        <Col>
+          <button className="interface-btn" style={{backgroundColor: "forestgreen"}} onClick={this.startRecord}>Start Record</button>
+        </Col>
+        <Col>
+          <button className="interface-btn" style={{backgroundColor: "red"}} onClick={this.stopRecord}>Stop Record</button>
+        </Col>
+      </Row>
     )
   }
 }

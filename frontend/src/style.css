@@ -6569,3 +6569,67 @@ h6 {
   font-size: 18px;
   line-height: 22px;
 }
+
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  font-size: 18px;
+  color: white;
+  text-align: left;
+}
+
+h1,
+h2 {
+  margin: 10px;
+}
+
+.answer {
+  border: 1px solid #fff;
+  padding: 5px 10px 5px 45px;
+  text-align: left;
+  margin-top: 10px;
+  position: relative;
+  font-size: 22px;
+  cursor: pointer;
+  transition: ease-in-out, width 0.35s ease-in-out;
+}
+
+.answer.selected {
+  color: #4f4c4c;
+  background-color: #A6FFFF;
+}
+
+.answer:hover {
+  color: #4f4c4c;
+  background-color: #A6FFFF;
+}
+
+.answer:focus {
+  outline: none;
+}
+
+.results span.correct {
+  color: #A6FFFF;
+}
+
+.results span.failed {
+  color: #f27c7c;
+}
+
+.error {
+  color: #f27c7c;
+}
+
+.letter {
+  color: #4f4c4c;
+  width: 30px;
+  position: absolute;
+  left: 0;
+  text-align: center;
+  height: 28px;
+  top: 0;
+  padding: 5px;
+  text-transform: uppercase;
+}
