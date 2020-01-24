@@ -1,0 +1,16 @@
+.wrapper-container {
+    text-align: center;
+}
+
+.container-card {
+    align-items: center;
+    margin-top: 40px;
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    margin: 1rem;
+    position: relative;
+    width: 100%;
+    padding-top: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
