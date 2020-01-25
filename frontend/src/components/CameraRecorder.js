@@ -53,7 +53,7 @@ class CameraRecorder extends React.Component {
       formData.append('name', 'hi');
       formData.append('mp4video', mp4video);
       console.log(formData);
-      fetch('http://0f3e79d0.ngrok.io/video', {
+      fetch('http://b91146cc.ngrok.io/video', {
         method: 'POST',
         body: formData
         }).then((response) => {
