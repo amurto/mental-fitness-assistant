@@ -2,7 +2,6 @@ import React from 'react';
 import RecordRTC from 'recordrtc';
 import { Col, Row, Spinner } from 'react-bootstrap';
 import ChartModal from './ChartModal.js';
-import MyChart from './Plotchart';
 
 class CameraRecorder extends React.Component {
   constructor(props) {
@@ -58,8 +57,8 @@ class CameraRecorder extends React.Component {
         body: formData
         }).then((response) => {
           response.json().then(() => {
-            // this.setResults();
-            // this.setState({ show: true });
+            this.setResults();
+            this.setState({ show: true });
             console.log("OK");
           });        
       });
@@ -76,11 +75,8 @@ class CameraRecorder extends React.Component {
         <Row>
           <ChartModal show={this.state.show} handleClose={this.hideModal}>
             {!this.state.results && (
-              // <div  className="center" style={{ padding: "30%", textAlign: "center" }}>
-              //   <Spinner animation="grow" variant="info" />
-              // </div>
-              <div>
-                <MyChart />
+              <div  className="center" style={{ padding: "30%", textAlign: "center" }}>
+                <Spinner animation="grow" variant="info" />
               </div>
             )}
           </ChartModal>
