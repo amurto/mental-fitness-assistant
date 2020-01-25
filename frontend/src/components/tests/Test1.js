@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import { Modal, Row, Col } from 'react-bootstrap';
-import QuizApp from './QuizApp';
+import QuizApp1 from './QuizApp1';
 
 const BDI = () => {
     const [show, setShow] = useState(false);
@@ -14,7 +14,7 @@ const BDI = () => {
                 <Modal.Title>BDI</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <QuizApp />
+                    <QuizApp1 />
                 </Modal.Body>
             </Modal>
             <Row>

@@ -4,6 +4,7 @@ import './Tests.css';
 import BDI from './tests/Test1';
 import HAnxiety from './tests/Test2';
 import Schiz from './tests/Test3';
+import Bipolar from './tests/Test4';
 
 const Tests = () => {
     return (
@@ -12,6 +13,7 @@ const Tests = () => {
                 <BDI />
                 <HAnxiety />
                 <Schiz />
+                <Bipolar />
             </div> 
         </div>  
     )

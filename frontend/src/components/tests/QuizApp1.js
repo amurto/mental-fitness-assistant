@@ -14,7 +14,7 @@ import {
 } from './types.js';
 import quizReducer from './QuizReducer';
         
-const QuizApp11 = () => {
+const QuizApp1 = () => {
     const questions = [
         {
             id: 1,
@@ -240,6 +240,23 @@ const QuizApp11 = () => {
         }
         return total;
     }
+
+    const finalStatement = () => {
+        let total = totalScore;
+        if (total < 11) {
+            return <h3>These ups and downs are considered normal </h3>
+        } else if (total < 17) {
+            return <h3>Mild mood disturbance </h3>
+        } else if (total < 21) {
+            return <h3>Borderline clinical depression </h3>
+        } else if (total < 31) {
+            return <h3>Moderate depression </h3>
+        } else if (total < 41) {
+            return <h3>Severe depression  </h3>
+        } else {
+            return <h3>Extreme depression </h3>
+        }
+    }
     
     const next = () => {
         const answer ={questionid:question.id, answer: currentAnswer};
@@ -267,7 +284,7 @@ const QuizApp11 = () => {
         return (
             <div className="container results">
                 <h2>Results</h2>
-                <ul>{totalScore()}</ul>
+                <ul>{finalStatement()}</ul>
                 <button className="interface-btn" style={{ backgroundColor: "blue" }} onClick={restart}>
                     Restart
                 </button>

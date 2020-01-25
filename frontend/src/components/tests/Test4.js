@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
-import { Modal, Button, Row, Col } from 'react-bootstrap';
-import QuizApp3 from './QuizApp4';
+import { Modal, Row, Col } from 'react-bootstrap';
+import QuizApp4 from './QuizApp4';
 
 const Bipolar = () => {
     const [show, setShow] = useState(false);
@@ -14,7 +14,7 @@ const Bipolar = () => {
                 <Modal.Title>Bipolar</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <QuizApp3 />
+                    <QuizApp4 />
                 </Modal.Body>
             </Modal>
             <Row>

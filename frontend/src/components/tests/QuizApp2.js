@@ -200,11 +200,26 @@ const QuizApp2 = () => {
         dispatch({type: SET_SHOW_RESULTS, showResults: true});
     };
 
+    const finalStatement = () => {
+        let total = totalScore;
+        if (total < 5) {
+            return <h3>Not Present </h3>
+        } else if (total < 17) {
+            return <h3>Mild severity </h3>
+        } else if (total < 25) {
+            return <h3>Mild to Moderate severity </h3>
+        } else if (total < 31) {
+            return <h3>Moderate to severe </h3>
+        } else {
+            return <h3>Severe to Extreme </h3>
+        }
+    }
+
     if (showResults) {
         return (
             <div className="container results">
-                <h2>Results</h2>
-                <ul>{totalScore()}</ul>
+                <h2>Anxiety Results</h2>
+                <ul>{finalStatement()}</ul>
                 <button className="interface-btn" style={{ backgroundColor: "blue" }} onClick={restart}>
                     Restart
                 </button>
