@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import { Modal, Button, Row, Col } from 'react-bootstrap';
+import { Modal, Row, Col } from 'react-bootstrap';
 import QuizApp3 from './QuizApp3';
 
 const Schiz = () => {

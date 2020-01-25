@@ -30,11 +30,13 @@ class CameraRecorder extends React.Component {
   stopRecord() {
     this.state.recordVideo.stopRecording(() => {
       this.state.recordVideo.save();
+      const mpvideo = new Blob([this.state.recordVideo.blob], {type: 'video/mp4'});
       const formData = new FormData(); 
       formData.append('video', this.state.recordVideo.blob);
       formData.append('name', 'hi');
-      console.log(formData);
-      fetch('http://localhost:5000/video', {
+      formData.append('m4video', mpvideo);
+      console.log(this.state.recordVideo);
+      fetch('http://7e3476c5.ngrok.io/video', {
         method: 'POST',
         body: formData,
         }).then((response) => {
