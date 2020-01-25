@@ -1,6 +1,8 @@
 import React from 'react';
 import RecordRTC from 'recordrtc';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Spinner } from 'react-bootstrap';
+import ChartModal from './ChartModal.js';
+import MyChart from './Plotchart';
 
 class CameraRecorder extends React.Component {
   constructor(props) {
@@ -12,6 +14,21 @@ class CameraRecorder extends React.Component {
     this.stopRecord = this.stopRecord.bind(this);
     this.getUserMedia = this.getUserMedia.bind(this);
   }
+
+  state = { show: false };
+  state = { results: false };
+
+  setResults = () => {
+    this.setState({ results: true })
+  }
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
   
   requestUserMedia() {
     this.getUserMedia(stream => {
@@ -30,19 +47,21 @@ class CameraRecorder extends React.Component {
   stopRecord() {
     this.state.recordVideo.stopRecording(() => {
       this.state.recordVideo.save();
-      const mpvideo = new Blob([this.state.recordVideo.blob], {type: 'video/mp4'});
+      const mp4video = new Blob([this.state.recordVideo.blob], {type: 'video/mp4'});
       const formData = new FormData(); 
       formData.append('video', this.state.recordVideo.blob);
       formData.append('name', 'hi');
-      formData.append('m4video', mpvideo);
-      console.log(this.state.recordVideo);
-      fetch('http://7e3476c5.ngrok.io/video', {
+      formData.append('mp4video', mp4video);
+      console.log(formData);
+      fetch('http://ef709ddf.ngrok.io/video', {
         method: 'POST',
-        body: formData,
+        body: formData
         }).then((response) => {
           response.json().then(() => {
-            console.log("OK")
-          });
+            // this.setResults();
+            // this.setState({ show: true });
+            console.log("OK");
+          });        
       });
     });
   }
@@ -53,14 +72,32 @@ class CameraRecorder extends React.Component {
 
   render() {
     return (
-      <Row>
-        <Col>
-          <button className="interface-btn" style={{backgroundColor: "forestgreen"}} onClick={this.startRecord}>Start Record</button>
-        </Col>
-        <Col>
-          <button className="interface-btn" style={{backgroundColor: "red"}} onClick={this.stopRecord}>Stop Record</button>
-        </Col>
-      </Row>
+      <React.Fragment>
+        <Row>
+          <ChartModal show={this.state.show} handleClose={this.hideModal}>
+            {!this.state.results && (
+              // <div  className="center" style={{ padding: "30%", textAlign: "center" }}>
+              //   <Spinner animation="grow" variant="info" />
+              // </div>
+              <div>
+                <MyChart />
+              </div>
+            )}
+          </ChartModal>
+          <Col>
+            <button className="interface-btn" style={{backgroundColor: "forestgreen"}} onClick={this.startRecord}>Start Record</button>
+          </Col>
+          <Col>
+            <button className="interface-btn" style={{backgroundColor: "red"}} onClick={this.stopRecord}>Stop Record</button>
+          </Col>
+        </Row>
+        <hr></hr>
+        {this.state.recordVideo && (
+          <div>
+            <button className="interface-btn" style={{ backgroundColor: "blue", marginBottom: "30px" }} onClick={this.showModal}>Check Results</button>
+          </div>
+        )}
+      </React.Fragment>
     )
   }
 }
