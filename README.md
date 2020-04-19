@@ -33,3 +33,12 @@ Test applications to check for various mental illnesses like depression, schizop
 
 #### RESULTS
 Results generated can be downloaded or sent via email.
+
+# Webapp Images
+![mental-fitness-assistant Demo](templates/demo.jpg)
+
+# License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+[MIT License Link](https://github.com/amurto/mental-fitness-assistant/blob/master/LICENSE)
