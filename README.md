@@ -1,4 +1,4 @@
-# Mental Fitness Assistant - Mindfulness
+# Mental Fitness Assistant
 A web-app that diagnoses any mental illness by understanding your emotions (facial and voice) and various questionnaires and downloadable reports. It also comes with a HappyBot that can talk and lift you up and suggest nearby therapists if needed.
 
 Health is a state of complete physical, mental and social well-being and not merely the absence of disease
